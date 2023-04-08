@@ -16,5 +16,9 @@
 
   - https://zenn.dev/hsaki/books/golang-grpc-starting
 
+- mysql
+
+  - https://rightcode.co.jp/blog/information-technology/golang-introduction-mysql-connection
+
 - docker
   - https://zenn.dev/ajapa/articles/443c396a2c5dd1
