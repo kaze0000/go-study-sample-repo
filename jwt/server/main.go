@@ -20,6 +20,8 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 func isAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handler {
 	// funv isAuthorizedはmiddleware functionである
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// 無名関数を実行して、http.HandlerFuncにキャストしてreturn
+		  // http.HandlerFuncはHandlerインターフェイスを満たす
 		if r.Header["Token"] != nil {
 			token, err := jwt.Parse(r.Header["Token"][0], func(token *jwt.Token) (interface{}, error){
 				// interface{}型の値：JWTトークンの署名キーを表す任意の型の値を返す(nilやmySigningKeyに対応できる)
@@ -44,7 +46,11 @@ func isAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handle
 }
 
 func handleRequests() {
-	// http.HandleFunc("/", homePage) //* http.HandleFuncとhttp.Handleでは、ハンドラーの実装方法が異なる
+	// http.HandleFunc("/", homePage)
+		// http.HandleFuncとhttp.Handleでは、ハンドラーの実装方法が異なる
+		// http.Handle(パス, http.Handlerインターフェイスを実装したオブジェクト)
+			// http.Handle の方が柔軟性があり、カスタムオブジェクトを使用してリクエストを処理するための詳細な制御が可能
+		// http.HandleFunc(パス, http.HandlerFunc型の関数)
 	http.Handle("/", isAuthorized(homePage))
 
 	log.Fatal(http.ListenAndServe(":9000", nil))
