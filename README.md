@@ -23,4 +23,8 @@
   - https://rightcode.co.jp/blog/information-technology/golang-introduction-mysql-connection
 
 - docker
+
   - https://zenn.dev/ajapa/articles/443c396a2c5dd1
+
+- clean architecture
+  - https://rightcode.co.jp/blog/information-technology/golang-clean-architecture-rest-api-syain
