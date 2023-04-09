@@ -20,6 +20,7 @@ func main() {
 
     if err != nil {
         fmt.Println("データベース接続失敗")
+        fmt.Println(err)
         return
     } else {
         fmt.Println("データベース接続成功")

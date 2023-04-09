@@ -4,9 +4,19 @@ services:
     image: mysql:8.0.21
     ports:
       - "3306:3306"
-    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_USER: "webuser"
       MYSQL_PASSWORD: "webpass"
       MYSQL_ROOT_PASSWORD: "pass"
       MYSQL_DATABASE: "go_mysql8_development"
+# ubuntuを立て、そこにmysql8をインストールし、そこにgoで接続してみた
+# version: "3"
+# services:
+#   ubuntu-mysql:
+#     build:
+#       context: .
+#       dockerfile: ./ubuntu/Dockerfile
+#     container_name: ubuntu-mysql
+#     privileged: true
+#     ports:
+#       - "3306:3306"
