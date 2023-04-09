@@ -6,7 +6,7 @@ import (
 
 	"github.com/kaze0000/go-study-youtube/mysql/database"
 
-	_ "github.com/go-sql-driver/mysql" // 波線でてるけど、使えている
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
@@ -23,5 +23,22 @@ func main() {
         return
     } else {
         fmt.Println("データベース接続成功")
+    }
+
+    err = database.CreateTable(db)
+    if err != nil {
+        fmt.Println("テーブル作成失敗")
+        fmt.Println(err)
+        return
+    } else {
+        fmt.Println("テーブル作成成功")
+    }
+
+    err = database.InsertData(db, "kaze", "ex@ex.com")
+    if err != nil {
+        fmt.Println("データ挿入失敗")
+        return
+    } else {
+        fmt.Println("データ挿入成功")
     }
 }
