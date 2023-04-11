@@ -26,5 +26,13 @@
 
   - https://zenn.dev/ajapa/articles/443c396a2c5dd1
 
-- clean architecture
+- echo-rest-clean
+
   - https://rightcode.co.jp/blog/information-technology/golang-clean-architecture-rest-api-syain
+
+- mvc-clean
+
+  - https://zenn.dev/maru44/articles/b9e07e91a0ea77
+
+- context
+  - https://www.youtube.com/watch?v=h2RdcrMLQAo&ab_channel=TutorialEdge
