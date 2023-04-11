@@ -35,4 +35,8 @@
   - https://zenn.dev/maru44/articles/b9e07e91a0ea77
 
 - context
+
   - https://www.youtube.com/watch?v=h2RdcrMLQAo&ab_channel=TutorialEdge
+
+- simple-web-server
+  - https://qiita.com/taizo/items/bf1ec35a65ad5f608d45
