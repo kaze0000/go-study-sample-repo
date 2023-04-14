@@ -39,7 +39,8 @@ func main() {
 	db := connectDB()
 	defer db.Close()
 	article.ReadAll(db)
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
 		_, _ = fmt.Fprint(w, "Hello, 世界！")
 	})
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

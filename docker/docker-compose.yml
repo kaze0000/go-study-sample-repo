@@ -6,6 +6,8 @@ services:
     build:
       context: ./golang
       dockerfile: Dockerfile
+    # image: go-singlestage
+    image: go-multistage
     tty: true
     ports:
       - 8080:8080
