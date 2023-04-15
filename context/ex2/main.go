@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=h2RdcrMLQAo&ab_channel=TutorialEdge](https://www.youtube.com/watch?v=h2RdcrMLQAo&ab_channel=TutorialEdge
 package main
 
 import (
@@ -38,6 +39,16 @@ func main() {
 		fmt.Println("oh no, I've exceeded the deadline")
 		fmt.Println(ctx.Err()) //コンテキストがキャンセルされたりタイムアウトしたりした場合のエラー情報を返す。コンテキストがまだキャンセルされていない場合はnilを返す
 	}
-
-	time.Sleep(2 * time.Second)
 }
+
+// 実行結果
+/*
+	Hello, World!
+	12345
+	do something cool
+	do something cool
+	do something cool
+	do something cool
+	oh no, I've exceeded the deadline
+	context deadline exceeded
+*/
