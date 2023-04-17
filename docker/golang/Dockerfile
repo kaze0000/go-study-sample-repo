@@ -13,7 +13,14 @@
 ### Build stage ###
 FROM golang:1.17.7-alpine AS builder
 WORKDIR /app
+
+# COPY src/ .
+# srcをいきなりコピーするよりも、go.mod go.sumを先にコピーしておくほうがビルド時間が減る
+# つまり、可能な限りビルドに必要なものだけを先にコピーし、依存関係をダウンロードする
+COPY go.mod go.sum ./
+RUN go mod download
 COPY src/ .
+
 # -o はアウトプットの名前を指定。(今回はmain)
 # ビルドするファイル名を指定（今回は main.go）
 RUN go build -o main /app/main.go
