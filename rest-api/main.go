@@ -19,11 +19,11 @@ type Profile struct {
 	UserID int `json:"userId"`
 }
 
-var profiles []Profile
+var profiles []*Profile
 
 func addProfile(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	var newProfile Profile
+	var newProfile *Profile
 	err := json.NewDecoder(r.Body).Decode(&newProfile)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
@@ -73,7 +73,7 @@ func updateProfile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var updatedProfile Profile
+	var updatedProfile *Profile
 	err = json.NewDecoder(r.Body).Decode(&updatedProfile)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
